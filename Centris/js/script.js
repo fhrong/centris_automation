@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (exampleBox) {
                     const isVisible = exampleBox.style.display === "block";
                     exampleBox.style.display = isVisible ? "none" : "block";
-                    console.log(`Example box ${index + 1} is now ${isVisible ? "hidden" : "visible"}.`);
+                    // console.log(`Example box ${index + 1} is now ${isVisible ? "hidden" : "visible"}.`);
                 } else {
                     console.error(`No example box found for card ${index + 1}.`);
                 }
