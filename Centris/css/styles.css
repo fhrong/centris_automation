@@ -347,5 +347,12 @@ padding:70px 0;
 .contact-container{
 padding:25px;
 }
+}
 
+
+
+@media (min-width: 1024px) {
+    .card {
+        min-height: 370px;
+    }
 }
