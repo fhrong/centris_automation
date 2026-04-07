@@ -14,6 +14,63 @@ padding:0;
 box-sizing:border-box;
 }
 
+/* EXAMPLES */
+
+.example-box{
+display:none;
+margin-top:20px;
+padding:20px;
+background:#1c1c1e;
+border-radius:12px;
+font-size:14px;
+line-height:1.6;
+}
+
+.example-card.active .example-box{
+display:block;
+}
+
+.example-card button{
+cursor:pointer;
+border:none;
+background:none;
+font-size:15px;
+padding:0;
+}
+
+.flow-demo{
+margin-top:10px;
+color:#e5e5e5;
+line-height:1.8;
+}
+
+.chat-demo{
+background:#111;
+padding:15px;
+border-radius:10px;
+font-size:14px;
+}
+
+.chat-demo p{
+margin-bottom:8px;
+}
+
+.chat-demo .ai{
+background:#1c1c1e;
+padding:10px;
+border-radius:8px;
+margin-top:6px;
+}
+
+.example-card{
+transition:all .25s ease;
+}
+
+.example-card.active{
+transform:translateY(-3px);
+}
+
+
 body{
 font-family:var(--font-main);
 background:var(--bg-color);
