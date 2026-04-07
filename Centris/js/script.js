@@ -28,7 +28,3 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-document.querySelectorAll(".example-box").forEach((box, index) => {
-    console.log(`Ensuring example box ${index + 1} is visible by default.`);
-    box.style.display = "block";
-});
