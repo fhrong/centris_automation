@@ -9,9 +9,8 @@ document.addEventListener("DOMContentLoaded", () => {
             if (card) {
                 const exampleBox = card.querySelector(".example-box");
                 if (exampleBox) {
-                    const isVisible = exampleBox.style.display === "block";
-                    exampleBox.style.display = isVisible ? "none" : "block";
-                    // console.log(`Example box ${index + 1} is now ${isVisible ? "hidden" : "visible"}.`);
+                    const isExpanded = exampleBox.style.height && exampleBox.style.height !== "0px";
+                    exampleBox.style.height = isExpanded ? "0" : `${exampleBox.scrollHeight}px`;
                 } else {
                     console.error(`No example box found for card ${index + 1}.`);
                 }
@@ -21,5 +20,3 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
-
-
