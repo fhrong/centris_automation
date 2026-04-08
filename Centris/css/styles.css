@@ -229,10 +229,11 @@ font-size:20px;
 /* GRID */
 
 .grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:25px;
-align-items:start;
+    display: grid;
+    /* Force single column (mobile-style) even on desktop as requested */
+    grid-template-columns: 1fr;
+    gap:25px;
+    align-items:start;
 }
 
 /* CARDS */
@@ -363,8 +364,8 @@ padding:25px;
 
 
 
-@media (min-width: 1024px) {
+/* @media (min-width: 1024px) {
     .card {
         min-height: 370px;
     }
-}
+} */
