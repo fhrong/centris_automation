@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ArteGrafix - Gráfica Digital | Ribeirão Preto</title>
+  <meta name="description" content="ArteGrafix Gráfica Digital em Ribeirão Preto. Presentes personalizados, papelaria, adesivos, impressão express e muito mais.">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #fafafa;
+      --fg: #1a1a1a;
+      --card: #ffffff;
+      --muted: #666;
+      --border: #e5e2dd;
+      --cyan: hsl(190, 100%, 45%);
+      --magenta: hsl(330, 100%, 45%);
+      --yellow: hsl(50, 100%, 55%);
+      --gradient: linear-gradient(135deg, var(--cyan), var(--magenta), var(--yellow));
+      --shadow-card: 0 8px 32px -8px rgba(0,0,0,0.1);
+      --radius: 0.75rem;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.6;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+
+    /* ── Header ── */
+    .header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .header .container {
+      display: flex; align-items: center; justify-content: space-between;
+      padding-top: 0.75rem; padding-bottom: 0.75rem;
+    }
+    .header-brand { display: flex; align-items: center; gap: 0.75rem; }
+    .header-logo { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; }
+    .header-name { font-size: 1.125rem; font-weight: 700; }
+    .header-name span { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .header-sub { font-size: 0.7rem; color: var(--muted); letter-spacing: 0.15em; }
+    .header-nav { display: flex; gap: 1.5rem; font-size: 0.875rem; font-weight: 500; color: var(--muted); }
+    .header-nav a:hover { color: var(--fg); }
+    .header-cta {
+      background: var(--gradient); color: #fff;
+      padding: 0.5rem 1.25rem; border-radius: 999px;
+      font-size: 0.875rem; font-weight: 600;
+      transition: opacity 0.2s;
+    }
+    .header-cta:hover { opacity: 0.9; }
+
+    /* ── Hero ── */
+    .hero {
+      position: relative; min-height: 90vh;
+      display: flex; align-items: center; justify-content: center;
+      background: url('store.jpg') center/cover no-repeat;
+      margin-top: 72px;
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.55), rgba(0,0,0,0.7));
+    }
+    .hero-content { position: relative; text-align: center; color: #fff; padding: 2rem; }
+    .hero-badge {
+      display: inline-block; background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.2);
+      padding: 0.4rem 1rem; border-radius: 999px;
+      font-size: 0.8rem; font-weight: 500; margin-bottom: 1.5rem;
+    }
+    .hero h2 {
+      font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800;
+      line-height: 1.15; margin-bottom: 1rem;
+      text-shadow: 0 2px 16px rgba(0,0,0,0.5);
+    }
+    .hero h2 em {
+      font-style: normal;
+      background: var(--gradient); -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .hero p { font-size: 1.1rem; opacity: 0.85; max-width: 540px; margin: 0 auto 2rem; }
+    .hero-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--gradient); color: #fff;
+      padding: 0.75rem 2rem; border-radius: 999px;
+      font-weight: 600; font-size: 0.95rem; border: none; cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .btn-primary:hover { opacity: 0.9; }
+    .btn-outline {
+      background: transparent; color: #fff;
+      border: 2px solid rgba(255,255,255,0.4);
+      padding: 0.75rem 2rem; border-radius: 999px;
+      font-weight: 600; font-size: 0.95rem; cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn-outline:hover { background: rgba(255,255,255,0.1); }
+    .hero-stats {
+      display: flex; gap: 2.5rem; justify-content: center; margin-top: 3rem;
+      flex-wrap: wrap;
+    }
+    .hero-stat { text-align: center; }
+    .hero-stat strong { display: block; font-size: 1.5rem; font-weight: 700; }
+    .hero-stat small { font-size: 0.8rem; opacity: 0.7; }
+
+    /* ── Products ── */
+    .products { padding: 5rem 0; }
+    .section-label {
+      text-align: center; font-size: 0.8rem; font-weight: 600;
+      letter-spacing: 0.15em; text-transform: uppercase; color: var(--cyan);
+    }
+    .section-title {
+      text-align: center; font-size: clamp(1.5rem, 3vw, 2.25rem);
+      font-weight: 700; margin: 0.5rem 0 3rem;
+    }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    .product-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.5rem;
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+    .product-card:hover { box-shadow: var(--shadow-card); transform: translateY(-4px); }
+    .product-icon {
+      width: 40px; height: 40px; border-radius: 0.5rem;
+      background: var(--gradient); display: flex; align-items: center;
+      justify-content: center; margin-bottom: 1rem; color: #fff; font-size: 1.2rem;
+    }
+    .product-card h4 { font-weight: 600; margin-bottom: 0.25rem; }
+    .product-card .cat { font-size: 0.85rem; color: var(--muted); margin-bottom: 0.75rem; }
+    .product-card .price { font-size: 0.875rem; font-weight: 700; color: var(--cyan); }
+
+    /* ── About ── */
+    .about { padding: 5rem 0; background: var(--card); border-top: 1px solid var(--border); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+    .info-card {
+      display: flex; gap: 1rem; padding: 1.25rem;
+      border: 1px solid var(--border); border-radius: var(--radius);
+      margin-bottom: 1rem;
+    }
+    .info-icon {
+      width: 40px; height: 40px; min-width: 40px; border-radius: 0.5rem;
+      background: var(--gradient); display: flex; align-items: center;
+      justify-content: center; color: #fff; font-size: 1.1rem;
+    }
+    .info-card h4 { font-weight: 600; font-size: 0.9rem; margin-bottom: 0.15rem; }
+    .info-card p { font-size: 0.85rem; color: var(--muted); }
+
+    .map-wrapper {
+      border-radius: var(--radius); overflow: hidden;
+      border: 1px solid var(--border); height: 100%; min-height: 320px;
+    }
+    .map-wrapper iframe { width: 100%; height: 100%; border: 0; }
+
+    /* ── Footer ── */
+    .footer {
+      text-align: center; padding: 2rem; font-size: 0.8rem;
+      color: var(--muted); border-top: 1px solid var(--border);
+    }
+
+    /* ── Animations ── */
+    .fade-up {
+      opacity: 0; transform: translateY(24px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .header-nav { display: none; }
+      .about-grid { grid-template-columns: 1fr; }
+      .hero-stats { gap: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="header-brand">
+        <img src="logo.jpg" alt="ArteGrafix Logo" class="header-logo">
+        <div>
+          <div class="header-name">ARTE<span>GRAFIX</span></div>
+          <div class="header-sub">GIFTS PAPERS & PRINT EXPRESS</div>
+        </div>
+      </div>
+      <nav class="header-nav">
+        <a href="#inicio">Início</a>
+        <a href="#produtos">Produtos</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#contato">Contato</a>
+      </nav>
+      <a href="tel:1639314905" class="header-cta">Ligue Agora</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="inicio">
+    <div class="hero-content fade-up">
+      <div class="hero-badge">⭐ 4.4 — 263 avaliações no Google</div>
+      <h2>Sua ideia ganha<br>vida em <em>cores</em></h2>
+      <p>Gráfica digital em Ribeirão Preto. Presentes personalizados, papelaria criativa e impressão express com qualidade profissional.</p>
+      <div class="hero-buttons">
+        <a href="https://wa.me/551639314905" class="btn-primary">Solicite um Orçamento</a>
+        <a href="#produtos" class="btn-outline">Ver Produtos</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><strong>263</strong><small>Avaliações</small></div>
+        <div class="hero-stat"><strong>4.4★</strong><small>Nota Google</small></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products -->
+  <section class="products" id="produtos">
+    <div class="container">
+      <div class="section-label">Nossos Produtos</div>
+      <h3 class="section-title">Qualidade em cada detalhe</h3>
+      <div class="product-grid" id="product-grid"></div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="about" id="sobre">
+    <div class="container">
+      <div class="section-label">Sobre Nós</div>
+      <h3 class="section-title">Conheça a ArteGrafix</h3>
+      <div class="about-grid">
+        <div id="contato">
+          <div class="info-card fade-up">
+            <div class="info-icon">📍</div>
+            <div><h4>Endereço</h4><p>Av. Antônio Diederichsen, 421 — Jardim América, Ribeirão Preto - SP, 14020-240</p></div>
+          </div>
+          <div class="info-card fade-up">
+            <div class="info-icon">🕐</div>
+            <div><h4>Horário</h4><p>Segunda a Sexta: 08:00 — 18:00<br>Sábado: 08:00 — 12:00</p></div>
+          </div>
+          <div class="info-card fade-up">
+            <div class="info-icon">📞</div>
+            <div><h4>Telefone</h4><p><a href="tel:1639314905">(16) 3931-4905</a></p></div>
+          </div>
+          <div class="info-card fade-up">
+            <div class="info-icon">🌎</div>
+            <div><h4>Área Atendida</h4><p>Ribeirão Preto e proximidades</p></div>
+          </div>
+        </div>
+        <div class="map-wrapper fade-up">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3720.!2d-47.8088!3d-21.1767!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjHCsDEwJzM2LjEiUyA0N8KwNDgnMzEuNyJX!5e0!3m2!1spt-BR!2sbr!4v1" allowfullscreen loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#25D366" viewBox="0 0 16 16">
+        <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+      </svg>
+    </a>
+    <p> &copy; 2025 ArteGrafix Gráfica Digital — Ribeirão Preto, SP. Todos os direitos reservados.
+  </footer>
+
+  <script>
+    // Products data
+    const products = [
+      { icon: "🖨️", name: "Envelope Saco Branco A5", cat: "Papelaria Corporativa" },
+      { icon: "🎁", name: "Bloquinho Capa Dura", cat: "Presentes Personalizados" },
+      { icon: "🎨", name: "Agenda Tie Dye", cat: "Papelaria", price: "R$ 50,00", price: "R$ 49,99" },
+      { icon: "📦", name: "Caixa Imã – Dia dos Pais", cat: "Presentes", price: "R$ 49,99" },
+      { icon: "🎨", name: "Tiaras de Acrílico", cat: "Acrílico", price: "R$ 49,99" },
+      { icon: "🎉", name: "Caderno", cat: "sanmdisnd", price: "R$ 49,99" },
+      { icon: "🎁", name: "Adesivo Vinil até 5 cm", cat: "Adesivos", price: "R$ 49,00" },
+      { icon: "📦", name: "Squeeze Alumínio 600ml", cat: "Itens Personalizados", price: "R$ 49,00" },
+      { icon: "🎨", name: "Jogo Americano Beija Flor", cat: "Decoração", price: "R$ 69,00" },
+      { icon: "🎁", name: "Caneca Dia das Mães", cat: "Presentes", price: "R$ 39–70" },
+    ];
+
+    const grid = document.getElementById("product-grid");
+    products.forEach(p => {
+      const card = document.createElement("div");
+      card.className = "product-card fade-up";
+      card.innerHTML = `
+        <div class="product-icon">${p.icon}</div>
+        <h4>${p.name}</h4>
+        <div class="cat">${p.cat}</div>
+        ${p.price ? `<div class="price">${p.price}</div>` : ""}
+      `;
+      grid.appendChild(card);
+    });
+
+    // Scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("visible"); });
+    }, { threshold: 0.15 });
+    document.querySelectorAll(".fade-up").forEach(el => observer.observe(el));
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener("click", e => {
+        e.preventDefault();
+        document.querySelector(a.getAttribute("href"))?.scrollIntoView({ behavior: "smooth" });
+      });
+    });
+  </script>
+</body>
+</html>
