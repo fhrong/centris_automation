@@ -299,36 +299,6 @@ padding:40px;
 border-radius:20px;
 }
 
-form input,
-form textarea{
-width:100%;
-background:#1d1d1f;
-border:1px solid #444;
-border-radius:10px;
-padding:16px;
-color:white;
-margin-bottom:18px;
-font-size:16px;
-}
-
-form textarea{
-resize:vertical;
-}
-
-form button{
-width:100%;
-padding:16px;
-background:var(--accent-color);
-border:none;
-border-radius:10px;
-font-size:16px;
-font-weight:600;
-cursor:pointer;
-}
-
-form button:hover{
-background:#0077ed;
-}
 
 /* FOOTER */
 
@@ -339,6 +309,25 @@ font-size:13px;
 color:var(--text-secondary);
 text-align:center;
 margin-top:80px;
+}
+
+/* Footer layout adjustments */
+.footer-content{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:12px;
+}
+
+.contact-row{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.contact-email{
+    margin:0;
+    color:var(--text-secondary);
 }
 
 /* MOBILE */
